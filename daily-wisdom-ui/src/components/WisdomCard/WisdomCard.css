@@ -1,0 +1,160 @@
+.wisdom-card {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.wisdom-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  z-index: 1;
+}
+
+.wisdom-card__content {
+  position: relative;
+  z-index: 2;
+}
+
+.wisdom-card__title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.wisdom-card__description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  opacity: 0.95;
+}
+
+.wisdom-card__actions {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.wisdom-card__copy-button {
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.wisdom-card__copy-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.wisdom-card__copy-button--success {
+  background: rgba(76, 175, 80, 0.3);
+  border-color: rgba(76, 175, 80, 0.5);
+}
+
+/* Loading State */
+.wisdom-card--loading {
+  min-height: 300px;
+}
+
+.wisdom-card__skeleton {
+  position: relative;
+  z-index: 2;
+}
+
+.wisdom-card__skeleton-title,
+.wisdom-card__skeleton-description,
+.wisdom-card__skeleton-button {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.wisdom-card__skeleton-title {
+  height: 2rem;
+  width: 80%;
+  margin-bottom: 1rem;
+}
+
+.wisdom-card__skeleton-description {
+  height: 4rem;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.wisdom-card__skeleton-button {
+  height: 3rem;
+  width: 120px;
+  margin: 0 auto;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.1; }
+  50% { opacity: 0.3; }
+}
+
+/* Error State */
+.wisdom-card--error {
+  background: linear-gradient(135deg, #f44336 0%, #e91e63 100%);
+}
+
+.wisdom-card__error {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.wisdom-card__retry-button {
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+/* Empty State */
+.wisdom-card--empty {
+  background: linear-gradient(135deg, #9e9e9e 0%, #757575 100%);
+}
+
+.wisdom-card__empty {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .wisdom-card {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+  
+  .wisdom-card__title {
+    font-size: 1.3rem;
+  }
+  
+  .wisdom-card__description {
+    font-size: 1rem;
+  }
+}
